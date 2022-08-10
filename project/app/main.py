@@ -8,7 +8,7 @@ app = FastAPI()
 
 # Criando a página para API
 @app.get("/ping")
-def ping(settings: Settings = Depends(get_settings)):
+async def ping(settings: Settings = Depends(get_settings)):  # Setando variavel de ambiente
     return {
         "ping": "pong",
         "environment": settings.enviroment,
